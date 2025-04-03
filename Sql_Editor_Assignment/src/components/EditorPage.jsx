@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import MonacoEditor from "./components/MonacoEditor";
-import EditorPanel from "./components/EditorPanel";
-import Sidebar from "./components/Sidebar";
-import QueryOutput from "./components/QueryOutput";
-import useQueryStore from "./store";
-import "./App.css"; 
+import MonacoEditor from "./MonacoEditor";
+import EditorPanel from "./EditorPanel";
+import Sidebar from "./Sidebar";
+import QueryOutput from "./QueryOutput";
+import useQueryStore from "../store";
+import "../styles/EditorPage.css"; 
 
-const App = () => {
+const EditorPage = () => {
   const { currentQuery, queryHistory, queryResult, setQuery, executeQuery, saveQuery, clearQuery } = useQueryStore();
 
   const predefinedQueries = [
@@ -65,4 +65,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default EditorPage;
