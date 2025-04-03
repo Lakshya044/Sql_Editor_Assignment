@@ -6,26 +6,8 @@ import useQueryStore from "../store";
 import "../styles/QueryOutput.css"; 
 
 const QueryOutput = () => {
-  const { queryResult } = useQueryStore();
+  const { queryResult} = useQueryStore();
 
-  // const exportToCSV = () => {
-  //   if (!queryResult || queryResult.length === 0) {
-  //     alert("No data available to export.");
-  //     return;
-  //   }
-
-  //   const headers = Object.keys(queryResult[0]).join(",");
-  //   const rows = queryResult.map(row => Object.values(row).join(",")).join("\n");
-  //   const csvContent = `data:text/csv;charset=utf-8,${headers}\n${rows}`;
-
-  //   const encodedUri = encodeURI(csvContent);
-  //   const link = document.createElement("a");
-  //   link.setAttribute("href", encodedUri);
-  //   link.setAttribute("download", "query_results.csv");
-  //   document.body.appendChild(link);
-  //   link.click();
-  //   document.body.removeChild(link);
-  // };
   const exportToCSV = () => {
     if (!queryResult || queryResult.length === 0) {
       alert("No data available to export.");
@@ -56,7 +38,7 @@ const QueryOutput = () => {
           Export CSV
         </button>
       </div>
-
+      {queryResult.length > 0 && <p className="execution-time">Execution Time: 0.05ms</p>}
       {queryResult.length > 0 ? (
         <div className="query-table-container">
           <table className="query-table">

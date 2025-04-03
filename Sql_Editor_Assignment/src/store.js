@@ -3,8 +3,8 @@ import { Data1, Data2, Data3, Data4, Data5 } from "./data/data";
 
 
 const mockDataMap = Object.freeze({
-  "SELECT * FROM internetData;": Data1,
-  "SELECT id, first_name, last_name FROM internetData;": Data2,
+  "SELECT * FROM networkData;": Data1,
+  "SELECT id, first_name, email and ip_address FROM networkData;": Data2,
   "SELECT * FROM personalDatabase;": Data3,
   "SELECT * FROM accountDatabase;": Data4,
   "SELECT account_id, username, password, phone_number FROM accountDatabase;": Data5,

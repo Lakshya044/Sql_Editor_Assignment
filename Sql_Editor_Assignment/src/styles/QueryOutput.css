@@ -22,6 +22,17 @@
   font-weight: bold;
   color: #ffffff;
 }
+.execution-time {
+  font-size: 14px;
+  color: #4caf50; 
+  font-weight: bold;
+  margin-top: 8px;
+  text-align: left;
+  background-color: #f4f4f4;
+  padding: 6px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
 
 .query-table-container {
   max-height: 70vh;
@@ -78,7 +89,7 @@
 
 @media (max-width: 900px) {
   .output-container {
-    max-height: 200px;
+    max-height: 250px;
     padding: 8px;
   }
 

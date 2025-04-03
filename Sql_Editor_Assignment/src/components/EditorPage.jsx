@@ -10,8 +10,8 @@ const EditorPage = () => {
   const { currentQuery, queryHistory, queryResult, setQuery, executeQuery, saveQuery, clearQuery } = useQueryStore();
 
   const predefinedQueries = [
-    "SELECT * FROM internetData;",
-    "SELECT id, first_name, last_name FROM internetData;",
+    "SELECT * FROM networkData;",
+    "SELECT id, first_name, email and ip_address FROM networkData;",
     "SELECT * FROM personalDatabase;",
     "SELECT * FROM accountDatabase;",
     "SELECT account_id, username, password, phone_number FROM accountDatabase;",
