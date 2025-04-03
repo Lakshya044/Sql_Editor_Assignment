@@ -5,7 +5,7 @@
   background-color: #171717;
   color: white;
   padding: 20px;
-  min-width: 250px;
+
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -20,11 +20,14 @@
 
 @media (max-width: 900px) {
   .sidebar {
-    width: 100%;
-    min-height: 35vh;
+    width: 95%;
+    max-height: 40vh;
     overflow: scroll;
     flex-direction: row;
     justify-content: space-between;
+    overflow-y: scroll;
+    margin: 5px;
+    
   }
 
   .sections-wrapper {
@@ -56,7 +59,7 @@ h2 {
 }
 
 .search-bar {
-  width: 100%;
+  width: 90%;
   padding: 8px;
   margin: 10px 0;
   border-radius: 5px;
@@ -76,6 +79,78 @@ ul {
   cursor: pointer;
   font-family: monospace;
   border: 1px solid #e5e5e5;
+  transition: 0.3s;
+}
+
+.query-item:hover {
+  background: #9b8181;
+}
+@media (max-width: 400px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 50vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .sections-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section {
+    width: auto;
+  }
+
+  .query-item {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+.section {
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.icon {
+  color: #ccc;
+}
+
+.search-bar {
+  width: 90%;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.query-item {
+  background: #6f6262;
+  padding: 10px;
+  margin: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: monospace;
+  border: 1px solid #232222;
   transition: 0.3s;
 }
 

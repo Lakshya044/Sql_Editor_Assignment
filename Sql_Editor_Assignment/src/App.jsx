@@ -1,68 +1,14 @@
-import React, { useEffect } from "react";
-import MonacoEditor from "./components/MonacoEditor";
-import EditorPanel from "./components/EditorPanel";
-import Sidebar from "./components/Sidebar";
-import QueryOutput from "./components/QueryOutput";
-import useQueryStore from "./store";
-import "./App.css"; 
+import React,{lazy, } from 'react'
 
-const App = () => {
-  const { currentQuery, queryHistory, queryResult, setQuery, executeQuery, saveQuery, clearQuery } = useQueryStore();
-
-  const predefinedQueries = [
-    "SELECT * FROM internetData;",
-    "SELECT id, first_name, last_name FROM internetData;",
-    "SELECT * FROM personalDatabase;",
-    "SELECT * FROM accountDatabase;",
-    "SELECT account_id, username, password, phone_number FROM accountDatabase;",
-  ];
-
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.ctrlKey) {
-        switch (event.key.toLowerCase()) {
-          case "r": 
-            event.preventDefault();
-            executeQuery();
-            break;
-          case "s": 
-            event.preventDefault();
-            saveQuery();
-            break;
-          case "l": 
-            event.preventDefault();
-            clearQuery();
-            break;
-          default:
-            break;
-        }
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [executeQuery, saveQuery, clearQuery]);
-
+const Navbar = lazy(() => import("./components/Navbar"));
+const EditorPage = lazy(() => import("./components/EditorPage"));
+function App() {
   return (
-    <div className="editor-page">
-      <Sidebar queries={predefinedQueries} history={queryHistory} onSelectQuery={setQuery} />
-
-      <div className="editor-container">
-        <div className="editor-output-wrapper">
-          <div className="editor-section">
-            <MonacoEditor query={currentQuery} setQuery={setQuery} />
-            <div className="editor-panel-wrapper">
-              <EditorPanel executeQuery={executeQuery} saveQuery={saveQuery} clearQuery={clearQuery} />
-            </div>
-          </div>
-
-          <div className="query-output-section">
-            <QueryOutput queryResult={queryResult} />
-          </div>
-        </div>
-      </div>
+    <div>
+      <Navbar/>
+      <EditorPage/>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

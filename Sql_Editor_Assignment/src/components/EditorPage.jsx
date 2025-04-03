@@ -48,7 +48,7 @@ const EditorPage = () => {
       <Sidebar queries={predefinedQueries} history={queryHistory} onSelectQuery={setQuery} />
 
       <div className="editor-container">
-        <div className="editor-output-wrapper">
+        {/* <div className="editor-output-wrapper"> */}
           <div className="editor-section">
             <MonacoEditor query={currentQuery} setQuery={setQuery} />
             <div className="editor-panel-wrapper">
@@ -59,7 +59,7 @@ const EditorPage = () => {
           <div className="query-output-section">
             <QueryOutput queryResult={queryResult} />
           </div>
-        </div>
+        {/* </div> */}
       </div>
     </div>
   );
