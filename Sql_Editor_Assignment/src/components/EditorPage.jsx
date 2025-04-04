@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
-import MonacoEditor from "./MonacoEditor";
-import EditorPanel from "./EditorPanel";
-import Sidebar from "./Sidebar";
-import QueryOutput from "./QueryOutput";
+import React, { useEffect ,lazy} from "react";
+
 import useQueryStore from "../store";
+const MonacoEditor = lazy(() => import("./MonacoEditor"));
+const EditorPanel = lazy(() => import("./EditorPanel"));
+const Sidebar = lazy(() => import("./Sidebar"));
+const QueryOutput = lazy(() => import("./QueryOutput"));
+
 import "../styles/EditorPage.css"; 
 
 const EditorPage = () => {
