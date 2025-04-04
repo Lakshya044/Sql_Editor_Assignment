@@ -1,7 +1,7 @@
 
 .editor-panel {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
   margin-top: 25px;
   width: 90%;
@@ -68,6 +68,8 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 5px;
+    margin-top: 10px;
+    width: 90%;
   }
 
   .panel-button {
@@ -91,7 +93,7 @@
 
 @media (max-width: 700px) {
   .editor-panel {
-    width: fit-content;
+    width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -122,14 +124,14 @@
 
 @media (max-width: 500px) {
   .editor-panel {
-    width: fit-content;
+    width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     overflow: auto;
     flex-wrap: nowrap; 
-    margin-top: -15px;
+    margin-top: 15px;
     overflow-wrap: normal;
   }
   .panel-button {
@@ -151,14 +153,14 @@
 
 @media (max-width: 400px) {
   .editor-panel {
-    width: 60%;
+    width: auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     overflow: auto;
     flex-wrap: nowrap; 
-    margin-top: -15px;
+    margin-top: 15px;
     overflow-wrap: normal;
   }
   .panel-button {
