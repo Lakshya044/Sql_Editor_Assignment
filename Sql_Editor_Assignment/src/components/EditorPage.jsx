@@ -11,7 +11,6 @@ const QueryOutput = lazy(() => import("./QueryOutput"));
 const EditorPage = () => {
   const {
     currentQuery,
-    queryHistory,
     queryResult,
     setQuery,
     executeQuery,
@@ -58,7 +57,6 @@ const EditorPage = () => {
       <Suspense fallback={<div className="loader">Loading Sidebar...</div>}>
         <Sidebar
           queries={predefinedQueries}
-          history={queryHistory}
           onSelectQuery={setQuery}
         />
       </Suspense>

@@ -1,34 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { FaCloud, FaRedo } from "react-icons/fa";
+import { FaCloud, FaStar } from "react-icons/fa";
 import useQueryStore from "../store";
 import "../styles/Sidebar.css";
 
-const Sidebar = () => {
-  const { searchQueries, queryHistory, setQuery } = useQueryStore();
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchHistory, setSearchHistory] = useState("");
+const Sidebar = ({ queries = [], onSelectQuery }) => {
+  const {
+    bookmarks,
+    addBookmark,
+    removeBookmark,
+  } = useQueryStore();
+
+  const [searchQuery, setSearchQueryInput] = useState("");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 900);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 900);
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const filteredQueries = searchQueries.filter((query) =>
+  const filteredQueries = queries.filter((query) =>
     query.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const filteredHistory = queryHistory.filter((query) =>
-    query.toLowerCase().includes(searchHistory.toLowerCase())
-  );
-
   return (
-    <div
-      className={`sidebar ${isMobile ? "sidebar-mobile" : "sidebar-desktop"}`}
-    >
+    <div className={`sidebar ${isMobile ? "sidebar-mobile" : "sidebar-desktop"}`}>
       <div className="sections-wrapper">
+        {/* Available Queries */}
         <div className="section">
           <h2>
             <FaCloud className="icon" /> Queries Available
@@ -38,40 +36,41 @@ const Sidebar = () => {
             placeholder="Search queries..."
             className="search-bar"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => setSearchQueryInput(e.target.value)}
           />
           <ul>
             {filteredQueries.map((query, index) => (
-              <li
-                key={index}
-                onClick={() => setQuery(query)}
-                className="query-item"
-              >
-                {query}
+              <li key={index} className="query-item">
+                <span onClick={() => onSelectQuery(query)}>{query}</span>
+                <button
+                  className="bookmark-btn"
+                  onClick={() => addBookmark(query)}
+                  title="Bookmark this query"
+                >
+                  ★
+                </button>
               </li>
             ))}
           </ul>
         </div>
 
+        {/* Bookmarked Queries */}
         <div className="section">
           <h2>
-            <FaRedo className="icon" /> Query History
+            <FaStar className="icon" /> Bookmarked Queries
           </h2>
-          <input
-            type="text"
-            placeholder="Search history..."
-            className="search-bar"
-            value={searchHistory}
-            onChange={(e) => setSearchHistory(e.target.value)}
-          />
           <ul>
-            {filteredHistory.map((query, index) => (
-              <li
-                key={index}
-                onClick={() => setQuery(query)}
-                className="query-item"
-              >
-                {query}
+            {bookmarks.length === 0 && <p className="no-data">No bookmarks yet</p>}
+            {bookmarks.map((query, index) => (
+              <li key={index} className="query-item">
+                <span onClick={() => onSelectQuery(query)}>{query}</span>
+                <button
+                  className="bookmark-btn"
+                  onClick={() => removeBookmark(query)}
+                  title="Remove bookmark"
+                >
+                  ✕
+                </button>
               </li>
             ))}
           </ul>
