@@ -1,11 +1,9 @@
-
 .editor-panel {
   display: flex;
   flex-direction: row;
   gap: 10px;
   margin-top: 25px;
   width: 90%;
-  /* background-color: #171717; */
 }
 
 .error-message {
@@ -13,14 +11,13 @@
 }
 
 .alert.alert-danger {
-  background-color: #11141C;
+  background-color: #11141c;
   color: white;
   padding: 10px;
   border-radius: 5px;
   font-size: 16px;
   margin: 10px 0;
 }
-
 
 .panel-button {
   display: flex;
@@ -29,6 +26,8 @@
   gap: 8px;
   width: 40%;
   max-width: 300px;
+  min-width: 100px;
+  height: 48px;
   padding: 10px;
   font-size: 16px;
   border: none;
@@ -36,10 +35,13 @@
   border-radius: 5px;
   transition: 0.3s;
   margin: 7px;
+  box-sizing: border-box;
 }
 
 .panel-button .icon {
   font-size: 18px;
+  width: 18px;
+  height: 18px;
 }
 
 .run {
@@ -60,7 +62,6 @@
 .panel-button:hover {
   opacity: 0.75;
 }
-
 
 @media (max-width: 900px) {
   .editor-panel {
@@ -90,7 +91,6 @@
   }
 }
 
-
 @media (max-width: 700px) {
   .editor-panel {
     width: 90%;
@@ -99,14 +99,14 @@
     justify-content: center;
     align-items: center;
     overflow: auto;
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
     margin: 5px;
     overflow-wrap: normal;
   }
 
   .panel-button {
     width: 50%;
-    flex: 1; 
+    flex: 1;
     font-size: 14px;
     padding: 8px;
   }
@@ -121,7 +121,6 @@
   }
 }
 
-
 @media (max-width: 500px) {
   .editor-panel {
     width: 90%;
@@ -130,7 +129,7 @@
     justify-content: center;
     align-items: center;
     overflow: auto;
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
     margin-top: 15px;
     overflow-wrap: normal;
   }
@@ -150,7 +149,6 @@
   }
 }
 
-
 @media (max-width: 400px) {
   .editor-panel {
     width: auto;
@@ -159,7 +157,7 @@
     justify-content: center;
     align-items: center;
     overflow: auto;
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
     margin-top: 15px;
     overflow-wrap: normal;
   }

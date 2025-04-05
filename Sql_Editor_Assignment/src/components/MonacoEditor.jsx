@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { Editor } from "@monaco-editor/react";
 import useQueryStore from "../store";
-import "../styles/MonacoEditor.css"; 
-
+import "../styles/MonacoEditor.css";
 
 const MonacoEditor = () => {
   const { currentQuery, setQuery } = useQueryStore();
-  const [fontSize, setFontSize] = useState(18); 
+  const [fontSize, setFontSize] = useState(18);
 
   const updateFontSize = () => {
     const screenWidth = window.innerWidth;
@@ -22,7 +21,7 @@ const MonacoEditor = () => {
   };
 
   useEffect(() => {
-    updateFontSize(); 
+    updateFontSize();
     window.addEventListener("resize", updateFontSize);
     return () => window.removeEventListener("resize", updateFontSize);
   }, []);
@@ -36,7 +35,7 @@ const MonacoEditor = () => {
         onChange={(value) => setQuery(value)}
         options={{
           minimap: { enabled: false },
-          fontSize: fontSize, 
+          fontSize: fontSize,
           automaticLayout: true,
         }}
       />

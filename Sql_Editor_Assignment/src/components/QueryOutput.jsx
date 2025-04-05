@@ -39,11 +39,10 @@ const QueryOutput = () => {
     return (
       <div className="virtual-row" style={style}>
         {Object.values(row).map((value, i) => (
-  <div className="virtual-cell" key={i} title={value}>
-    {value}
-  </div>
-))}
-
+          <div className="virtual-cell" key={i} title={value}>
+            {value}
+          </div>
+        ))}
       </div>
     );
   };
