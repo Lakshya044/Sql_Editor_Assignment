@@ -112,3 +112,12 @@
     font-size: 12px;
   }
 }
+.responsive-scroll-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.table-header,
+.virtual-row {
+  min-width: 800px;
+}
