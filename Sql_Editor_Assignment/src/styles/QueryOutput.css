@@ -5,6 +5,7 @@
   border-radius: 8px;
   color: #e0e0e0;
   overflow: scroll;
+  height: 70vh;
 }
 
 .output-header {
