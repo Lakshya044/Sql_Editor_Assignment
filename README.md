@@ -48,8 +48,8 @@ An intuitive **web-based SQL editor** that lets you write, run, and manage **pre
 
 | Metric                  | Screenshot Preview |
 |------------------------|--------------------|
-| Lighthouse Report       | ![Lighthouse Report](./public/screenshots/Performance.png) |
-| Load Performance Graph  | ![Load Graph](./public/screenshots/Graph.png) |
+| Lighthouse Report       | ![Lighthouse Report](./Sql_Editor_Assignment/public/screenshots/Performance.png) |
+| Load Performance Graph  | ![Load Graph](./Sql_Editor_Assignment/public/screenshots/Graph.png) |
 
 
 
