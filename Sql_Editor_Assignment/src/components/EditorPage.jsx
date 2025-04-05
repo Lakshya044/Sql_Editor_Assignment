@@ -1,15 +1,23 @@
-import React, { useEffect ,lazy} from "react";
-
+import React, { useEffect, lazy, Suspense } from "react";
 import useQueryStore from "../store";
+import "../styles/EditorPage.css";
+
+// Lazy load components
 const MonacoEditor = lazy(() => import("./MonacoEditor"));
 const EditorPanel = lazy(() => import("./EditorPanel"));
 const Sidebar = lazy(() => import("./Sidebar"));
 const QueryOutput = lazy(() => import("./QueryOutput"));
 
-import "../styles/EditorPage.css"; 
-
 const EditorPage = () => {
-  const { currentQuery, queryHistory, queryResult, setQuery, executeQuery, saveQuery, clearQuery } = useQueryStore();
+  const {
+    currentQuery,
+    queryHistory,
+    queryResult,
+    setQuery,
+    executeQuery,
+    saveQuery,
+    clearQuery,
+  } = useQueryStore();
 
   const predefinedQueries = [
     "SELECT * FROM networkData;",
@@ -23,15 +31,15 @@ const EditorPage = () => {
     const handleKeyDown = (event) => {
       if (event.ctrlKey) {
         switch (event.key.toLowerCase()) {
-          case "r": 
+          case "r":
             event.preventDefault();
             executeQuery();
             break;
-          case "s": 
+          case "s":
             event.preventDefault();
             saveQuery();
             break;
-          case "l": 
+          case "l":
             event.preventDefault();
             clearQuery();
             break;
@@ -47,21 +55,36 @@ const EditorPage = () => {
 
   return (
     <div className="editor-page">
-      <Sidebar queries={predefinedQueries} history={queryHistory} onSelectQuery={setQuery} />
+      <Suspense fallback={<div className="loader">Loading Sidebar...</div>}>
+        <Sidebar
+          queries={predefinedQueries}
+          history={queryHistory}
+          onSelectQuery={setQuery}
+        />
+      </Suspense>
 
       <div className="editor-container">
-        {/* <div className="editor-output-wrapper"> */}
-          <div className="editor-section">
+        <div className="editor-section">
+          <Suspense fallback={<div className="loader">Loading Editor...</div>}>
             <MonacoEditor query={currentQuery} setQuery={setQuery} />
-            <div className="editor-panel-wrapper">
-              <EditorPanel executeQuery={executeQuery} saveQuery={saveQuery} clearQuery={clearQuery} />
-            </div>
-          </div>
+          </Suspense>
 
-          <div className="query-output-section">
-            <QueryOutput queryResult={queryResult} />
+          <div className="editor-panel-wrapper">
+            <Suspense fallback={<div className="loader">Loading Panel...</div>}>
+              <EditorPanel
+                executeQuery={executeQuery}
+                saveQuery={saveQuery}
+                clearQuery={clearQuery}
+              />
+            </Suspense>
           </div>
-        {/* </div> */}
+        </div>
+
+        <div className="query-output-section">
+          <Suspense fallback={<div className="loader">Loading Output...</div>}>
+            <QueryOutput queryResult={queryResult} />
+          </Suspense>
+        </div>
       </div>
     </div>
   );

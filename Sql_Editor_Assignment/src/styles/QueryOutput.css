@@ -1,12 +1,8 @@
-
 .output-container {
   margin-top: 15px;
-  padding: 10px;
+  padding: 16px;
   background-color: #171717;
-  border-radius: 5px;
-  max-height: 70vh;
-  overflow-y: auto;
-  position: relative;
+  border-radius: 8px;
   color: #e0e0e0;
 }
 
@@ -18,93 +14,101 @@
 }
 
 .output-title {
-  font-size: 16px;
-  font-weight: bold;
-  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
 }
+
 .execution-time {
   font-size: 14px;
-  color: #4caf50; 
+  color: #4caf50;
   font-weight: bold;
-  margin-top: 8px;
-  text-align: left;
+  margin-bottom: 10px;
   background-color: #f4f4f4;
-  padding: 6px 10px;
-  border-radius: 5px;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 6px;
   display: inline-block;
 }
 
 .query-table-container {
-  max-height: 70vh;
-  overflow-y: auto;
   border: 1px solid #303030;
-  border-radius: 5px;
-  overflow-x: auto; 
+  border-radius: 6px;
+  overflow: hidden;
+  font-family: monospace;
 }
 
-.query-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #1e1e1e;
-  color: #e0e0e0;
-}
-
-.query-table th {
+.table-header {
+  display: flex;
   background-color: #007bff;
-  color: #ffffff;
-  padding: 8px;
-  border: 1px solid #404040;
-  white-space: nowrap; 
-}
-
-.query-table td {
-  border: 1px solid #404040;
-  padding: 8px;
-  text-align: left;
-  white-space: nowrap; 
-}
-
-.no-data {
-  font-style: italic;
-  color: #777;
-  font-size: 24px;
+  color: #fff;
   font-weight: bold;
-  text-align: center;
+}
+
+.header-cell {
+  flex: 1;
+  padding: 10px;
+  border-right: 1px solid #005bb5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.virtual-row {
+  display: flex;
+  border-bottom: 1px solid #303030;
+  background-color: #1e1e1e;
+}
+
+.virtual-row:nth-child(even) {
+  background-color: #222;
+}
+
+.virtual-cell {
+  flex: 1;
+  padding: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-right: 1px solid #2e2e2e;
 }
 
 .export-btn {
-  padding: 8px 15px;
+  padding: 8px 16px;
   background-color: #252525;
   color: #e0e0e0;
-  border: 1px solid #303030;
-  border-radius: 5px;
-  cursor: pointer;
+  border: 1px solid #404040;
+  border-radius: 6px;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .export-btn:hover {
   background-color: #404040;
 }
 
+.no-data {
+  font-style: italic;
+  color: #888;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 20px;
+  text-align: center;
+}
 
-@media (max-width: 900px) {
-  .output-container {
-    max-height: 250px;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header-cell,
+  .virtual-cell {
+    font-size: 12px;
     padding: 8px;
   }
 
-  .query-table-container {
-    max-height: 150px;
-    overflow-x: auto;
-  }
-
-  .query-table th, .query-table td {
-    padding: 6px;
-    font-size: 14px;
-  }
-
   .export-btn {
+    font-size: 12px;
     padding: 6px 12px;
+  }
+
+  .execution-time {
     font-size: 12px;
   }
 }
