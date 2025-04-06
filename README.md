@@ -13,7 +13,7 @@ An intuitive **web-based SQL editor** that lets you write, run, and manage **pre
 - 💾 **Bookmark Queries** – Save your favorite queries locally  
 - 🧹 **Clear / Reset Query** – Instantly wipe the editor  
 - ⌨️ **Keyboard Shortcuts** – Faster interaction (Ctrl+Enter to run)  
-- 🪄 **Virtualized Table Output** – Smooth rendering of large datasets  
+- 🪄 **Lightweight Table Rendering** – Efficient display of large query results    
 
 ---
 
@@ -33,7 +33,7 @@ An intuitive **web-based SQL editor** that lets you write, run, and manage **pre
 
 - [`@monaco-editor/react`](https://www.npmjs.com/package/@monaco-editor/react) – Monaco Editor wrapper for React  
 - [`zustand`](https://www.npmjs.com/package/zustand) – Simplified state management  
-- [`react-virtualized`](https://www.npmjs.com/package/react-virtualized) – Efficient large list/table rendering  
+- [`react-window`](https://www.npmjs.com/package/react-window) – Lightweight, efficient rendering for large lists/tables   
 - `vite` – Fast dev server and bundler  
 
 ---
@@ -42,15 +42,18 @@ An intuitive **web-based SQL editor** that lets you write, run, and manage **pre
 
 - **Initial Page Load Time:** ~1.7 seconds  
 - **Measured Using:** Chrome DevTools → Lighthouse Audit  
-- **Test Device:** MacBook Pro M1, Chrome v123  
+ 
 
 ### 📷 Screenshots
 
-| Metric                  | Screenshot Preview |
-|------------------------|--------------------|
-| Lighthouse Report       | ![Lighthouse Report](./Sql_Editor_Assignment/public/screenshots/Performance.png) |
-| Load Performance Graph  | ![Load Graph](./Sql_Editor_Assignment/public/screenshots/Graph.png) |
-
+| Description                                         | Screenshot Preview |
+|-----------------------------------------------------|--------------------|
+| Lighthouse Report                                   | ![Lighthouse Report](./Sql_Editor_Assignment/public/screenshots/Performance.png) |
+| Load Performance Graph                              | ![Load Graph](./Sql_Editor_Assignment/public/screenshots/Graph.png) |
+| Homepage Overview                                   | ![Homepage](./Sql_Editor_Assignment/public/screenshots/Homepage.png) |
+| Empty Query Warning Message                         | ![Empty Query](./Sql_Editor_Assignment/public/screenshots/EmptyQuery.png) |
+| Invalid Query (Not Predefined) Error Message        | ![Invalid Query](./Sql_Editor_Assignment/public/screenshots/InvalidQuery.png) |
+| Export CSV Option Available                         | ![Export CSV](./Sql_Editor_Assignment/public/screenshots/ExportCSV.png) |
 
 
 ---
@@ -58,11 +61,10 @@ An intuitive **web-based SQL editor** that lets you write, run, and manage **pre
 ## 🧠 Optimizations Implemented
 
 - ✅ Lazy-loaded Monaco Editor  
-- ✅ Disabled unnecessary Monaco features (e.g., minimap)  
 - ✅ Responsive font sizing for better rendering on smaller screens  
 - ✅ Avoided unnecessary re-renders with Zustand slices  
 - ✅ Used `localStorage` to persist bookmarks without re-fetching  
-- ✅ Used `react-virtualized` to handle large dataset rendering efficiently  
+- ✅ Used `react-window` to handle large dataset rendering efficiently  
 
 ---
 
@@ -79,19 +81,21 @@ npm install
 
 # 3. Start development server
 npm run dev
+```
 
+Access it at: [http://localhost:5173](http://localhost:5173)
 
-Access it at: http://localhost:5173
+---
 
-📌 Notes
-You can only run predefined test queries listed in the sidebar.
+## 📉 Notes
 
-All queries and bookmarks are saved locally in your browser.
+- You can only run predefined test queries listed in the sidebar.  
+- All queries and bookmarks are saved locally in your browser.  
+- This is a mock environment – no actual database is used.  
 
-This is a mock environment – no actual database is used.
+---
 
-
-🙌 Thank You for Visiting!
+## 🙌 Thank You for Visiting!
 
 Crafted with passion and precision by **Lakshya Parashar** 🚀  
 _Explore. Learn. Query. Repeat._ 💡
