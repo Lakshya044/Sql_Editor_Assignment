@@ -5,6 +5,7 @@ import "../styles/Sidebar.css";
 
 const Sidebar = ({ queries = [], onSelectQuery }) => {
   const {
+    searchQueries,
     bookmarks,
     addBookmark,
     removeBookmark,
@@ -19,7 +20,7 @@ const Sidebar = ({ queries = [], onSelectQuery }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const filteredQueries = queries.filter((query) =>
+  const filteredQueries =  searchQueries.filter((query) =>
     query.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
